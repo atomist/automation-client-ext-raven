@@ -57,12 +57,9 @@ Command | Reason
 ------- | ------
 `npm install` | install all the required packages
 `npm run build` | lint, compile, and test
-`npm start` | start the Atomist automation client
-`npm run autostart` | run the client, refreshing when files change
 `npm run lint` | run tslint against the TypeScript
 `npm run compile` | compile all TypeScript into JavaScript
 `npm test` | run tests and ensure everything is working
-`npm run autotest` | run tests continuously
 `npm run clean` | remove stray compiled JavaScript files and build directory
 
 ### Release
