@@ -47,14 +47,13 @@ export class RavenAutomationEventListener extends AutomationEventListenerSupport
     }
 }
 
-
 export async function configureRaven(configuration: Configuration): Promise<Configuration> {
     if (_.get(configuration, "raven.enabled") === true) {
         logger.debug(`Adding Raven listener`);
 
         const dsn = configuration.raven.dsn;
         if (!dsn) {
-            throw new Error ("Raven dsn is missing. Please set 'raven.dsn' in your configuration.")
+            throw new Error ("Raven dsn is missing. Please set 'raven.dsn' in your configuration.");
         }
 
         const gi = require(`${appRoot.path}/git-info.json`);
@@ -74,11 +73,11 @@ export async function configureRaven(configuration: Configuration): Promise<Conf
                     git_repo: gitUrl.name,
                     automation_client_name: configuration.name,
                     automation_client_version: configuration.version,
-                }
+                },
             }).install();
 
             configuration.listeners.push(new RavenAutomationEventListener(Raven));
-            
+
         } catch (err) {
             throw new Error("Raven can't be loaded. Please install with 'npm install raven --save'.");
         }
