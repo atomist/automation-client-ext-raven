@@ -33,14 +33,14 @@ export class RavenAutomationEventListener extends AutomationEventListenerSupport
                 error,
                 {
                     extra: {
-                        "operation-type": type,
-                        "operation-name": nsp.operation,
+                        "operation_type": type,
+                        "operation_name": nsp.operation,
                         "artifact": nsp.name,
                         "version": nsp.version,
-                        "team-id": nsp.teamId,
-                        "team-name": nsp.teamName,
-                        "correlation-id": nsp.correlationId,
-                        "invocation-id": nsp.invocationId,
+                        "team_id": nsp.teamId,
+                        "team_name": nsp.teamName,
+                        "correlation_id": nsp.correlationId,
+                        "invocation_id": nsp.invocationId,
                     },
                 });
         }
@@ -71,8 +71,7 @@ export async function configureRaven(configuration: Configuration): Promise<Conf
                     git_sha: gi.sha,
                     git_owner: gitUrl.owner,
                     git_repo: gitUrl.name,
-                    automation_client_name: configuration.name,
-                    automation_client_version: configuration.version,
+                    environment: configuration.environment,
                 },
             }).install();
 
