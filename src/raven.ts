@@ -28,7 +28,7 @@ export class RavenAutomationEventListener extends AutomationEventListenerSupport
 
     private reportError(type: string, ctx: HandlerContext, error: any) {
         const nsp = (ctx as any as AutomationContextAware).context;
-        if (error && error instanceof Error) {
+        if (error) {
             this.raven.captureException(
                 error,
                 {
