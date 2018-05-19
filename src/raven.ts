@@ -26,24 +26,33 @@ export class RavenAutomationEventListener extends AutomationEventListenerSupport
         return Promise.resolve();
     }
 
-    private reportError(type: string, ctx: HandlerContext, error: any) {
+    private reportError(type: string, ctx: HandlerContext, err: any) {
         const nsp = (ctx as any as AutomationContextAware).context;
-        if (error) {
-            this.raven.captureException(
-                error,
-                {
-                    extra: {
-                        operation_type: type,
-                        operation_name: nsp.operation,
-                        artifact: nsp.name,
-                        version: nsp.version,
-                        team_id: nsp.teamId,
-                        team_name: nsp.teamName,
-                        correlation_id: nsp.correlationId,
-                        invocation_id: nsp.invocationId,
-                    },
-                });
+        if (!err) {
+            return;
         }
+
+        let error = err;
+        // Check if err is an Error instance and if not see if it is a HandlerFailure
+        // with a wrapped Error
+        if (!(err instanceof Error) && err.error && err.error instanceof Error) {
+            error = err.error;
+        }
+
+        this.raven.captureException(
+            error,
+            {
+                extra: {
+                    "operation_type": type,
+                    "operation_name": nsp.operation,
+                    "artifact": nsp.name,
+                    "version": nsp.version,
+                    "team_id": nsp.teamId,
+                    "team_name": nsp.teamName,
+                    "correlation_id": nsp.correlationId,
+                    "invocation_id": nsp.invocationId,
+                },
+            });
     }
 }
 
