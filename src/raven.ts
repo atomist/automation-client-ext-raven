@@ -43,14 +43,14 @@ export class RavenAutomationEventListener extends AutomationEventListenerSupport
             error,
             {
                 extra: {
-                    "operation_type": type,
-                    "operation_name": nsp.operation,
-                    "artifact": nsp.name,
-                    "version": nsp.version,
-                    "team_id": nsp.teamId,
-                    "team_name": nsp.teamName,
-                    "correlation_id": nsp.correlationId,
-                    "invocation_id": nsp.invocationId,
+                    operation_type: type,
+                    operation_name: nsp.operation,
+                    artifact: nsp.name,
+                    version: nsp.version,
+                    team_id: nsp.teamId,
+                    team_name: nsp.teamName,
+                    correlation_id: nsp.correlationId,
+                    invocation_id: nsp.invocationId,
                 },
             });
     }
