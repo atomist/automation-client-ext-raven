@@ -17,7 +17,7 @@
     "url": "https://github.com/atomist/automation-client-ext-raven/issues"
   },
   "dependencies": {
-    "@atomist/automation-client": "https://r.atomist.com/rJE1M9O6AG",
+    "@atomist/automation-client": "https://r.atomist.com/ByNCstnKJX",
     "app-root-path": "^2.0.1",
     "lodash": "^4.17.10",
     "raven": "^2.6.2"

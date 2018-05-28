@@ -1,7 +1,6 @@
 import {
     AutomationContextAware,
     Configuration,
-    logger,
 } from "@atomist/automation-client";
 import { EventFired } from "@atomist/automation-client/HandleEvent";
 import { HandlerContext } from "@atomist/automation-client/HandlerContext";
@@ -58,7 +57,6 @@ export class RavenAutomationEventListener extends AutomationEventListenerSupport
 
 export async function configureRaven(configuration: Configuration): Promise<Configuration> {
     if (_.get(configuration, "raven.enabled") === true) {
-        logger.debug(`Adding Raven listener`);
 
         const dsn = configuration.raven.dsn;
         if (!dsn) {
