@@ -31,6 +31,10 @@ export class RavenAutomationEventListener extends AutomationEventListenerSupport
             return;
         }
 
+        if (typeof err === "boolean") {
+            return;
+        }
+
         let error = err;
         // Check if err is an Error instance and if not see if it is a HandlerFailure
         // with a wrapped Error
