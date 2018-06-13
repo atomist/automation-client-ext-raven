@@ -22,7 +22,7 @@
     "raven": "^2.6.2"
   },
   "peerDependencies": {
-    "@atomist/automation-client": "^0.17.0"
+    "@atomist/automation-client": ">=0.17.0"
   },
   "devDependencies": {
     "@atomist/automation-client": "0.17.2-20180611215142",
