@@ -17,12 +17,15 @@
     "url": "https://github.com/atomist/automation-client-ext-raven/issues"
   },
   "dependencies": {
-    "@atomist/automation-client": "0.17.2-20180605032022",
     "app-root-path": "^2.0.1",
     "lodash": "^4.17.10",
     "raven": "^2.6.2"
   },
+  "peerDependencies": {
+    "@atomist/automation-client": "^0.17.0"
+  },
   "devDependencies": {
+    "@atomist/automation-client": "0.17.2-20180611215142",
     "@types/app-root-path": "^1.2.4",
     "@types/lodash": "^4.14.108",
     "@types/mocha": "^2.2.48",
