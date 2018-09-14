@@ -16,18 +16,18 @@
 
 import {
     AutomationContextAware,
+    AutomationEventListenerSupport,
+    CommandInvocation,
     Configuration,
+    EventFired,
+    HandlerContext,
 } from "@atomist/automation-client";
-import { EventFired } from "@atomist/automation-client/HandleEvent";
-import { HandlerContext } from "@atomist/automation-client/HandlerContext";
-import { CommandInvocation } from "@atomist/automation-client/internal/invoker/Payload";
-import { AutomationEventListenerSupport } from "@atomist/automation-client/server/AutomationEventListener";
 import * as appRoot from "app-root-path";
 import * as _ from "lodash";
 
 export class RavenAutomationEventListener extends AutomationEventListenerSupport {
 
-    constructor(private raven: any) {
+    constructor(private readonly raven: any) {
         super();
     }
 
@@ -110,4 +110,3 @@ export async function configureRaven(configuration: Configuration): Promise<Conf
     }
     return configuration;
 }
-
