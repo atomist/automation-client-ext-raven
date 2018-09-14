@@ -110,3 +110,4 @@ export async function configureRaven(configuration: Configuration): Promise<Conf
     }
     return configuration;
 }
+
