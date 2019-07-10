@@ -1,6 +1,6 @@
 {
   "name": "@atomist/automation-client-ext-raven",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Extension for capturing exceptions in automation clients and report them via Raven.JS",
   "author": {
     "name": "Atomist",
